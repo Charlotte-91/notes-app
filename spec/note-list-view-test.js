@@ -4,7 +4,7 @@
     let noteListModel = new NoteListModel();
     let view = new NoteListView(noteListModel);
 
-    let expected = "<ul><li><div></div></li></ul>";
+    let expected = "<ul></ul>";
 
     assert.isTrue(view.htmlList() === expected);
   }
@@ -29,11 +29,11 @@
     noteListModel.storeNotes("Favourite drink: seltzer");
 
     let view = new NoteListView(noteListModel);
-
+    
     let expected =
       "<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>";
 
-    assert.isTrue(view.htmlList === expected);
+    assert.isTrue(view.htmlList() === expected);
   }
   emptyView();
   oneNoteView();

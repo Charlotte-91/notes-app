@@ -4,15 +4,16 @@ class NoteListView {
   }
 
   htmlList() {
-    let firstNote;
-
+  
+    let notes;
     if (this.noteListModel.displayNotes().length > 0) {
-      let notes = this.noteListModel.displayNotes();
-      firstNote = notes[0].text;
+    notes = this.noteListModel.displayNotes().map(note =>{
+        return `<li><div>${note.text}</div></li>`
+        })
     } else {
-      firstNote = "";
+      notes = [""];
     }
 
-    return `<ul><li><div>${firstNote}</div></li></ul>`;
+   return `<ul>${notes.join("")}</ul>`;
   }
 }
